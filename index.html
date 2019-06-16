@@ -20,9 +20,11 @@
             padding: 0;
         }
 
-        ol{
+        ol,
+        ul {
             list-style: none;
         }
+
         body {
             background-color: #EFEFEF;
             color: black;
@@ -32,6 +34,16 @@
             content: '';
             display: block;
             clear: both;
+        }
+
+        .topNavBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: all 1s;
+            color: rgba(177, 177, 177);
+            z-index: 1;
         }
 
         .topNavBar a {
@@ -63,28 +75,28 @@
             padding-bottom: 8px;
         }
 
-        .topNavBar nav ul {
-            list-style: none;
+        .topNavBar>nav>ul {
+
             padding: 20px;
             margin: 0;
         }
 
-        .topNavBar nav ul>li {
+        .topNavBar nav>ul>li {
             float: left;
             margin-left: 17px;
             margin-right: 17px;
             position: relative;
         }
 
-        .topNavBar nav ul>li>a {
-            color: rgba(177, 177, 177);
+        .topNavBar nav>ul>li>a {
+            color: inherit;
             font-weight: bold;
             border-bottom: 3px solid transparent;
             position: relative;
             padding: 10px 0;
         }
 
-        .topNavBar nav ul>li>a:hover::after {
+        .topNavBar>nav>ul>li>a:hover::after {
             /* border-bottom-color: #DC6465; */
             content: '';
             display: block;
@@ -98,33 +110,64 @@
             animation: menuSlide 0.3s;
         }
 
-        @keyframes menuSlide{
-            0%{
+        @keyframes menuSlide {
+            0% {
                 width: 0;
             }
-            100%{
-                width:100%;
+
+            100% {
+                width: 100%;
             }
         }
 
         .topNavBar .submenu {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: 180%;
+            right: 0;
+            background: white;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
         }
 
-        .topNavBar .submenu.active {
+        .topNavBar ul li:hover .submenu {
             display: block;
+            animation: submenuSlide .4s;
+
         }
 
-        .topNavBar .submenu > li {
+        @keyframes submenuSlide {
+            0% {
+                margin-right: 100%;
+                opacity: 0;
+            }
+
+            100% {
+                margin-right: 0%;
+                opacity: 1;
+            }
+        }
+
+        .topNavBar .submenu>li {
             white-space: nowrap;
+
         }
 
-        .sticky{
+        .topNavBar .submenu>li>a {
+            color: black;
+            display: inline-block;
+            padding: 5px 17px;
+
+
+        }
+
+        .topNavBar .submenu>li:hover a {
+            background: rgb(250, 250, 250);
+            color: #CF5D5F;
+        }
+
+        .topNavBar.sticky {
             background-color: white;
-            
+            color: #3d4451;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
         }
 
@@ -136,15 +179,7 @@
             background-size: cover;
         }
 
-        .topNavBar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            transition: all 1s;
-            
-            z-index: 1;
-        }
+
 
         .banner .mask {
             height: 515px;
@@ -263,11 +298,11 @@
             color: #3d4451;
             font-weight: bold;
             text-decoration: none;
-            transition: box-shadow 0.3s;
+            transition: box-shadow 0.2s;
         }
 
         body>main .downloadResume:hover {
-            box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
         }
 
         .self-introduction {
@@ -315,73 +350,86 @@
             height: 100%;
             width: 70%;
             border-radius: 2px;
-            
+
         }
-        section.skills>ol>li{
+
+        section.skills>ol>li {
             float: left;
             width: 48%;
             box-sizing: border-box;
-                
+
         }
-        section.skills>ol>li:nth-child(odd){
+
+        section.skills>ol>li:nth-child(odd) {
             float: left;
         }
-        section.skills>ol>li:nth-child(odd){
+
+        section.skills>ol>li:nth-child(odd) {
             float: right;
         }
-        section.skills h3{
+
+        section.skills h3 {
             font-size: 14px;
             line-height: 1.1;
             padding-right: 40px;
             margin-top: 40px;
             margin-bottom: 3px;
         }
-        section.portfolio ol li{
+
+        section.portfolio ol li {
             /* float: left; */
             margin-left: 40px;
             display: inline-block;
             cursor: pointer;
         }
-        section.portfolio ol li:first-child{
+
+        section.portfolio ol li:first-child {
             margin-left: 0;
         }
-        section.portfolio{
+
+        section.portfolio {
             text-align: center;
             margin-bottom: 50px;
         }
-        section.portfolio nav{
+
+        section.portfolio nav {
             display: inline-block;
             font: 13px "Open Sans";
         }
-        section.portfolio nav .bar{
+
+        section.portfolio nav .bar {
             /* border: 3px solid red; */
             margin-top: 10px;
             margin-bottom: 28px;
             background-color: #fff;
             height: 5px;
             border-radius: 2px;
-            
+
         }
-        section.portfolio nav .bar .progress{
+
+        section.portfolio nav .bar .progress {
             background-color: #E83B35;
             height: 100%;
             width: 20%;
             border-radius: 2px;
         }
-        section.portfolio nav .bar.state-1 .progress{
+
+        section.portfolio nav .bar.state-1 .progress {
             margin-left: 0;
             width: 50px;
-            transition-duration: 0.4s;   
+            transition-duration: 0.4s;
         }
-        section.portfolio nav .bar.state-2 .progress{
+
+        section.portfolio nav .bar.state-2 .progress {
             margin-left: 55px;
             width: 60px;
-            transition-duration: 0.4s;    
+            transition-duration: 0.4s;
         }
-        section.portfolio nav .bar.state-3 .progress{
+
+        section.portfolio nav .bar.state-3 .progress {
             margin-left: 123px;
             width: 91px;
-            transition-duration: 0.4s;    
+            transition-duration: 0.4s;
         }
     </style>
 </head>
@@ -394,14 +442,22 @@
         <nav>
             <ul class="clearfix">
                 <li><a href="#siteAbout">关于</a></li>
-                <li class="submenu"><a class="menuTrigger" href="#siteSkills">技能</a>
-                    <ul>
-                        <li>技能1</li>
-                        <li>技能2</li>
-                        <li>技能3</li>
+                <li>
+                    <a class="menuTrigger" href="#siteSkills">技能</a>
+                    <ul class="submenu">
+                        <li><a href="#">技能1</a></li>
+                        <li><a href="#">技能2</a></li>
+                        <li><a href="#">技能3</a></li>
                     </ul>
                 </li>
-                <li><a href="#siteWorks">作品</a></li>
+                <li>
+                    <a href="#siteWorks">作品</a>
+                    <ul class="submenu">
+                        <li><a href="#">作品1</a></li>
+                        <li><a href="#">作品2</a></li>
+                        <li><a href="#">作品3</a></li>
+                    </ul>
+                </li>
                 <li><a href="#siteBlog">博客</a></li>
                 <li><a href="#">日历</a></li>
                 <li><a href="#">联系方式</a></li>
@@ -527,7 +583,7 @@
             <div id="portfolioBar" class="bar state-1">
                 <div class="progress"></div>
             </div>
-            
+
         </nav>
         <div class="jobs" style="position:relative;height: 607px;">
             <div class="big" style="position:absolute;top: 0;left: 0;">
@@ -542,73 +598,73 @@
         </div>
     </section>
     <script>
-            portfolioAll.onclick = function(){
-                portfolioBar.className = "bar state-1"
-            }
-            portfolioFramework.onclick = function(){
-                portfolioBar.className = "bar state-2"
-            }
-            portfolioVallina.onclick = function(){
-                portfolioBar.className = "bar state-3"
-            }
+        portfolioAll.onclick = function () {
+            portfolioBar.className = "bar state-1"
+        }
+        portfolioFramework.onclick = function () {
+            portfolioBar.className = "bar state-2"
+        }
+        portfolioVallina.onclick = function () {
+            portfolioBar.className = "bar state-3"
+        }
 
-            window.onscroll = function(){
-                
-                if(window.scrollY > 10){
-                    topNavBar.classList.add('sticky')
-                    
-                }else{
-                    topNavBar.classList.remove('sticky')
-                    
-                }
-            }
+        window.onscroll = function () {
 
-            let aTags = document.querySelectorAll('nav ul li>a')
-            for(let i = 0; i<aTags.length; i++){
-                aTags[i].onclick = function(x){
-                    x.preventDefault()
-                    let a = x.currentTarget
-                    let href = a.getAttribute('href')
-                    let element = document.querySelector(href)
-                    let top = element.offsetTop
-                    
-                    let n = 25
-                    let duration = 500/n
-                    let currentTop = window.scrollY
-                    let targetTop = top - 80
-                    let distance = (targetTop - currentTop)/n
-                    let i = 0
-                    
-                    let id = setInterval(()=>{
-                        if(i===n){
-                            window.clearInterval(id)
-                            return
-                        }
-                        i = i + 1
-                        window.scrollTo(0, currentTop + distance * i)
-                    },duration)
-                }
-            }
+            if (window.scrollY > 10) {
+                topNavBar.classList.add('sticky')
 
-            var liTags = document.getElementsByClassName('menuTrigger')
-            for(let i = 0; i < liTags.length; i++){
-                liTags[i].onmouseenter = function(x){
-                    let a = x.currentTarget.getElementsByTagName[0]
-                    console.log(a)
-                    let brother = a.nextElementSibling
-                    brother.classList.add('active')
+            } else {
+                topNavBar.classList.remove('sticky')
 
-                    // let brother = a.nextSibling
-                    // while( brother.tagName !== 'UL' ){
-                    //     brother = brother.nextSibling
-                    // }
-                }
-                liTags[i].onmouseleave = function(x){
-                    let a = x.currentTarget.getElementsByTagName[0]
-                    let brother = a.nextElementSibling
-                    brother.classList.remove('active')
-                }
             }
+        }
+
+        let aTags = document.querySelectorAll('nav ul li>a')
+        for (let i = 0; i < aTags.length; i++) {
+            aTags[i].onclick = function (x) {
+                x.preventDefault()
+                let a = x.currentTarget
+                let href = a.getAttribute('href')
+                let element = document.querySelector(href)
+                let top = element.offsetTop
+
+                let n = 25
+                let duration = 500 / n
+                let currentTop = window.scrollY
+                let targetTop = top - 80
+                let distance = (targetTop - currentTop) / n
+                let i = 0
+
+                let id = setInterval(() => {
+                    if (i === n) {
+                        window.clearInterval(id)
+                        return
+                    }
+                    i = i + 1
+                    window.scrollTo(0, currentTop + distance * i)
+                }, duration)
+            }
+        }
+
+        var liTags = document.getElementsByClassName('menuTrigger')
+        for (let i = 0; i < liTags.length; i++) {
+            liTags[i].onmouseenter = function (x) {
+                let a = x.currentTarget.getElementsByTagName[0]
+                console.log(a)
+                let brother = a.nextElementSibling
+                brother.classList.add('active')
+
+                // let brother = a.nextSibling
+                // while( brother.tagName !== 'UL' ){
+                //     brother = brother.nextSibling
+                // }
+            }
+            liTags[i].onmouseleave = function (x) {
+                let a = x.currentTarget.getElementsByTagName[0]
+                let brother = a.nextElementSibling
+                brother.classList.remove('active')
+            }
+        }
     </script>
     <script src="//at.alicdn.com/t/font_1172406_3b0u2yfzle6.js"></script>
 </body>
