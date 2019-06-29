@@ -1,0 +1,471 @@
+.swiper-container {
+    width: 800px;
+    height: 600px;
+}
+
+.swiper-container img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: #EFEFEF;
+    color: black;
+}
+
+p.self-introduction {
+    text-indent: 2em;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.topNavBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 1s;
+    color: rgba(177, 177, 177);
+    z-index: 10;
+}
+
+.topNavBar a {
+    text-decoration: none;
+}
+
+.topNavBar .logo {
+    float: left;
+    font-family: "Hiragino Kaku Gothic Std";
+    font-size: 22px;
+    font-weight: bold;
+    padding: 22px 10px;
+
+}
+
+.topNavBar .logo .rs {
+    color: #e6686a;
+    margin-right: 4px;
+}
+
+.topNavBar .logo .card {
+    color: #9A9DA2;
+}
+
+.topNavBar nav {
+    float: right;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.topNavBar>nav>ul {
+
+    padding: 20px;
+    margin: 0;
+}
+
+.topNavBar nav>ul>li {
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+    position: relative;
+}
+
+.topNavBar nav>ul>li>a {
+    color: inherit;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    position: relative;
+    padding: 10px 0;
+}
+
+.topNavBar>nav>ul>li>a:hover::after {
+    /* border-bottom-color: #DC6465; */
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    border-radius: 10px;
+    animation: menuSlide 0.3s;
+}
+
+@keyframes menuSlide {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.topNavBar .submenu {
+    display: none;
+    position: absolute;
+    top: 180%;
+    right: 0;
+    background: white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+
+}
+
+.topNavBar ul li:hover .submenu {
+    display: block;
+    animation: submenuSlide .4s;
+
+}
+
+@keyframes submenuSlide {
+    0% {
+        margin-right: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        margin-right: 0%;
+        opacity: 1;
+    }
+}
+
+.topNavBar .submenu>li {
+    white-space: nowrap;
+
+}
+
+.topNavBar .submenu>li>a {
+    color: black;
+    display: inline-block;
+    padding: 5px 17px;
+
+
+}
+
+.topNavBar .submenu>li:hover a {
+    background: rgb(250, 250, 250);
+    color: #CF5D5F;
+}
+
+.topNavBar.sticky {
+    background-color: white;
+    color: #3d4451;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.banner {
+    height: 515px;
+    background-image: url(../img/rs-cover-2-2-1-1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+.banner .mask {
+    height: 515px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.userCard {
+    /* border: 1px solid red; */
+    max-width: 940px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.userCard .welcome {
+    background-color: #E6686A;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding: 4px 16px;
+}
+
+.userCard .welcome .triangle {
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #E6686A;
+    border-top-width: 0;
+    position: absolute;
+    top: 100%;
+    left: 4px;
+}
+
+.userCard .picture {
+    float: left;
+}
+
+.userCard .text {
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+
+.userCard .pictureAndText {
+    padding: 50px;
+}
+
+.userCard .text h1 {
+    margin-top: 26px;
+}
+
+.userCard .text p {
+    margin-top: 8px;
+}
+
+.userCard .text hr {
+    border: none;
+    border-top: 1px solid #DEDEDE;
+    margin: 20px 0;
+}
+
+.userCard dl dd,
+.userCard dl dt {
+    float: left;
+    padding: 5px 0;
+}
+
+.userCard dl dt {
+    width: 25%;
+    font-weight: bold;
+}
+
+.userCard dl dd {
+    width: 75%;
+    color: #9da0a7;
+}
+
+.userCard>footer {
+    background-color: #E6685A;
+    text-align: center;
+}
+
+.userCard svg {
+    height: 30px;
+    width: 30px;
+    fill: white;
+    vertical-align: top;
+}
+
+.userCard>footer>a {
+    /* border: 1px solid black; */
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    margin: 16px;
+}
+
+.userCard>footer>a:hover {
+    background-color: #CF5D5F;
+}
+
+main {
+    margin-top: -340px;
+}
+
+body>main .downloadResume {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    background-color: #EFEFEF;
+    border: 1px solid #CDCFD1;
+    border-radius: 2px;
+    margin: 32px 0;
+    color: #3d4451;
+    font-weight: bold;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+}
+
+body>main .downloadResume:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.self-introduction {
+    max-width: 940px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-family: serif;
+    font-weight: bold;
+}
+
+section.skills,
+section.portfolio {
+    max-width: 940px;
+    margin: 0 auto;
+
+}
+
+section.skills>h2,
+section.portfolio>h2,
+section.message>h2 {
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 25px;
+}
+
+section.skills>ol {
+    background-color: white;
+    list-style: none;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 2px 50px 42px;
+}
+
+section.skills .progressBar {
+    /* border: 1px solid red; */
+    height: 5px;
+    background-color: #fae1e1;
+    border-radius: 2px;
+}
+
+section.skills .progressBar .progress {
+    background-color: #E6686A;
+    height: 100%;
+    width: 70%;
+    border-radius: 2px;
+
+}
+
+section.skills>ol>li {
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+
+}
+
+section.skills>ol>li:nth-child(odd) {
+    float: left;
+}
+
+section.skills>ol>li:nth-child(odd) {
+    float: right;
+}
+
+section.skills h3 {
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 3px;
+}
+
+section.portfolio ol li {
+    /* float: left; */
+    margin-left: 40px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+section.portfolio ol li:first-child {
+    margin-left: 0;
+}
+
+section.portfolio {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section.portfolio nav {
+    display: inline-block;
+    font: 13px "Open Sans";
+}
+
+section.portfolio nav .bar {
+    /* border: 3px solid red; */
+    margin-top: 10px;
+    margin-bottom: 28px;
+    background-color: #fff;
+    height: 5px;
+    border-radius: 2px;
+
+}
+
+section.portfolio nav .bar .progress {
+    background-color: #E83B35;
+    height: 100%;
+    width: 20%;
+    border-radius: 2px;
+}
+
+section.portfolio nav .bar.state-1 .progress {
+    margin-left: 0;
+    width: 50px;
+    transition-duration: 0.4s;
+}
+
+section.portfolio nav .bar.state-2 .progress {
+    margin-left: 55px;
+    width: 60px;
+    transition-duration: 0.4s;
+}
+
+section.portfolio nav .bar.state-3 .progress {
+    margin-left: 123px;
+    width: 91px;
+    transition-duration: 0.4s;
+}
+
+section.message > ol{
+    max-width: 700px;
+    margin: 0 auto;
+    border-top: 1px solid #DDD;
+}
+
+section.message > ol > li{
+    padding: 16px;
+    border-bottom: 1px solid #DDD;
+}
+
+section.message > form{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+}
+
+section.message > form > label:nth-child(1){
+    padding-left: 120px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: white;
+}
