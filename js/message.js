@@ -33,18 +33,24 @@ query.find().then(function (message) {
 let myForm = document.querySelector('#myForm')
 myForm.addEventListener('submit', function (e) {
     e.preventDefault()
+
     var name = myForm.querySelector('input[name=name]').value
     var content = myForm.querySelector('input[name=content]').value
-    var Message = AV.Object.extend('Message')
-    var message = new Message()
-    message.save({
-        name: name,
-        content: content
-    }).then(function (object) {
-        let li = document.createElement('li')
-        li.innerText = `${object.attributes.name}:${object.attributes.content}`
-        let messageList = document.querySelector('#messageList')
-        messageList.appendChild(li)
-        myForm.querySelector('input[name=content]').value = ''
-    })
+    if (name !== '' && content !== '') {
+        var Message = AV.Object.extend('Message')
+        var message = new Message()
+        message.save({
+            name: name,
+            content: content
+        }).then(function (object) {
+            let li = document.createElement('li')
+            li.innerText = `${object.attributes.name}:${object.attributes.content}`
+            let messageList = document.querySelector('#messageList')
+            messageList.appendChild(li)
+            myForm.querySelector('input[name=content]').value = ''
+        })
+    } else {
+        alert("输入不能为空")
+    }
+
 })
